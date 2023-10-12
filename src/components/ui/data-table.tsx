@@ -71,7 +71,7 @@ export function DataTable<TData, TValue>({
 
 	return (
 		<div>
-			<div className='flex justify-between'>
+			<div className='flex flex-wrap items-center justify-between'>
 				<div className='flex items-center py-4'>
 					<Input
 						placeholder='Search'
@@ -102,15 +102,17 @@ export function DataTable<TData, TValue>({
 						</SelectContent>
 					</Select>
 				</div>
-				<div className='flex gap-4'>
-					<Link
-						href='/movie/create'
-						className={cn(buttonVariants({ variant: 'default' }))}
-					>
-						<PlusCircle className='mr-2 h-4 w-4' />
-						Add
-					</Link>
-					<Download data={data} />
+				<div className='flex-1 py-4'>
+					<div className='flex justify-end gap-4'>
+						<Link
+							href='/movie/create'
+							className={cn(buttonVariants({ variant: 'default' }))}
+						>
+							<PlusCircle className='mr-2 h-4 w-4' />
+							Add
+						</Link>
+						<Download data={data} />
+					</div>
 				</div>
 			</div>
 			<div className='rounded-md border'>

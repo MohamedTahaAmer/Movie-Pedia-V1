@@ -8,7 +8,7 @@ import { CellAction } from './cell-action';
 import { FormatedMovie } from '@/Types';
 import { useState } from 'react';
 
-const Header = ({ column }: { column: any }) => {
+const RatingHeader = ({ column }: { column: any }) => {
 	const [buttonClicks, setButtonClicks] = useState(0);
 	const handleButtonClick = () => {
 		if (buttonClicks === 0) {
@@ -42,7 +42,7 @@ export const columns: ColumnDef<FormatedMovie>[] = [
 	},
 	{
 		accessorKey: 'rating',
-		header: Header,
+		header: RatingHeader,
 	},
 	{
 		id: 'actions',

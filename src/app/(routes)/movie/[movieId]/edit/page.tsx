@@ -15,7 +15,7 @@ const Page = async ({
 	if (!movie) return notFound();
 	return (
 		<>
-			<div className='mx-auto max-w-[700px] p-10 '>
+			<div className='mx-auto max-w-[700px] p-2 sm:p-4 md:p-10'>
 				<Link
 					href='/'
 					className={cn(buttonVariants({ variant: 'ghost' }), 'my-10')}

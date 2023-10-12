@@ -3,7 +3,7 @@
 import { DownloadCloudIcon, Table, Text } from 'lucide-react';
 import CsvDownloader from 'react-csv-downloader';
 
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 import { FormatedMovie } from '@/Types';
-import { cn } from '@/lib/utils';
 
 interface DownloadProps {
 	data: FormatedMovie[];
@@ -29,8 +28,8 @@ export const Download: React.FC<DownloadProps> = ({ data }) => {
 						Download
 					</Button>
 				</DropdownMenuTrigger>
-				<DropdownMenuContent align='end'>
-					<DropdownMenuItem>
+				<DropdownMenuContent>
+					<DropdownMenuItem className='flex items-center justify-center'>
 						<div className='flex items-center justify-center gap-2 pt-4'>
 							<CsvDownloader
 								filename='MovieList'
@@ -38,17 +37,16 @@ export const Download: React.FC<DownloadProps> = ({ data }) => {
 								separator=';'
 								wrapColumnChar="'"
 								datas={data}
-								className={cn(
-									buttonVariants({ variant: 'default' }),
-									'flex items-center justify-center gap-2 hover:cursor-pointer',
-								)}
+								className={
+									'flex items-center justify-center gap-2 hover:cursor-pointer'
+								}
 							>
 								<Table className=' h-4 w-4' />
 								CSV
 							</CsvDownloader>
 						</div>
 					</DropdownMenuItem>
-					<DropdownMenuItem>
+					<DropdownMenuItem className='flex items-center justify-center'>
 						<div className='flex items-center justify-center gap-4'>
 							<CsvDownloader
 								filename='MovieList'
@@ -56,10 +54,9 @@ export const Download: React.FC<DownloadProps> = ({ data }) => {
 								separator=';'
 								wrapColumnChar="'"
 								datas={data}
-								className={cn(
-									buttonVariants({ variant: 'default' }),
-									'flex items-center justify-center gap-2 hover:cursor-pointer',
-								)}
+								className={
+									'flex items-center justify-center gap-2 hover:cursor-pointer'
+								}
 							>
 								<Text className='h-4 w-4' />
 								TXT
