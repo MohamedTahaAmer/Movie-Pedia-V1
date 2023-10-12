@@ -39,7 +39,9 @@ export function EditMovieForm({ movie }: { movie: Movie }) {
 		},
 	});
 
-	const handleUpdateMovie = async (movie: Movie) => {
+	const handleUpdateMovie = async (
+		movie: Pick<Movie, 'name' | 'duration' | 'rating' | 'id'>,
+	) => {
 		console.log('in');
 		try {
 			setLoading(true);

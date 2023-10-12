@@ -1,7 +1,7 @@
 import { getAllMovies } from '@/actions/actions.movie';
 import { MovieClient } from '@/components/table/client';
 
-const MoviesPage = async ({ params }: { params: { storeId: string } }) => {
+const MoviesPage = async () => {
 	const movies = await getAllMovies();
 	const csvData = movies.map((movie) => ({
 		...movie,

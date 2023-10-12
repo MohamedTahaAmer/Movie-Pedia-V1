@@ -26,7 +26,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-export function EditMovieForm() {
+export function CraeteMovieForm() {
 	const router = useRouter();
 	const [loading, setLoading] = useState(false);
 

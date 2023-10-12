@@ -2,7 +2,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
-import { EditMovieForm } from './components/EditMovieForm';
+import { CraeteMovieForm } from './components/CraeteMovieForm';
 
 const Page = async ({}: {}) => {
 	return (
@@ -15,7 +15,7 @@ const Page = async ({}: {}) => {
 					<ChevronLeft className='mr-2 h-4 w-4' />
 					Home
 				</Link>
-				<EditMovieForm />
+				<CraeteMovieForm />
 			</div>
 		</>
 	);
