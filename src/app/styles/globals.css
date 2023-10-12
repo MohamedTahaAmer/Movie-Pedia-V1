@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* - how to ignore unkown css rules */
+/* https://flaviocopes.com/fix-unknown-at-rule-tailwind/ */
+
+html,
+:root {
+	height: 100%;
+	overflow-y: scroll !important;
+}
+
+@layer base {
+	:root {
+		--shadow: 360 100% 0%;
+
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
+
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+
+		--primary: 222.2 47.4% 11.2%;
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+
+		--accent: 210 40% 96.1%;
+		--accent-foreground: ;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+
+		--success: 140 50% 50%;
+		--success-foreground: 210 40% 98%;
+
+		--ring: 215 20.2% 65.1%;
+
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--shadow: 360 100% 100%;
+
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
+
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+
+		--card: 222.2 84% 4.9%;
+		--card-foreground: 210 40% 98%;
+
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+
+		--primary: 210 40% 98%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: ;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 85.7% 97.3%;
+
+		--success: 140 50% 50%;
+		--success-foreground: 210 40% 98%;
+
+		--ring: 217.2 32.6% 17.5%;
+	}
+}
+
+@layer base {
+	/* * {
+		@apply border-border;
+	} */
+	body {
+		@apply bg-background text-foreground min-h-screen min-w-full;
+		font-feature-settings:
+			'rlig' 1,
+			'calt' 1;
+	}
+}
+
+@layer components {
+	.shadoww {
+		@apply shadow-shadow/10 dark:shadow-shadow/30 shadow;
+	}
+
+	@keyframes fadeDown {
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+	.animate-fade-down {
+		animation-name: fadeDown;
+		animation-duration: 0.5s;
+		animation-iteration-count: 1; /* Run the animation only once */
+	}
+	@keyframes fadeUp {
+		0% {
+			transform: translateY(100%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+	.animate-fade-up {
+		animation-name: fadeUp;
+		animation-duration: 0.5s;
+		animation-iteration-count: 1; /* Run the animation only once */
+	}
+}
