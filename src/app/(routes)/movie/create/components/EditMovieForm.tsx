@@ -34,7 +34,9 @@ export function EditMovieForm() {
 		resolver: zodResolver(movieValidator),
 	});
 
-	const handleUpdateMovie = async (movie: Omit<Movie, 'id'>) => {
+	const handleUpdateMovie = async (
+		movie: Pick<Movie, 'name' | 'duration' | 'rating'>,
+	) => {
 		try {
 			setLoading(true);
 			await createMovie(movie);
