@@ -7,6 +7,8 @@ const MoviesPage = async () => {
 		...movie,
 		duration: movie.duration.toFixed(2),
 		rating: movie.rating.toFixed(2),
+		createddAt: undefined,
+		updatedAt: undefined,
 	}));
 	return (
 		<div className='flex-col'>

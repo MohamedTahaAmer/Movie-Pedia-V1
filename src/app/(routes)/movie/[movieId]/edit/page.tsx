@@ -11,10 +11,7 @@ const Page = async ({
 }: {
 	params: { movieId: string };
 }) => {
-	// console.log(movieId);
-	// return <div>page</div>;
 	const movie = await getMovie(movieId);
-	// if (!movie) return null;
 	if (!movie) return notFound();
 	return (
 		<>
