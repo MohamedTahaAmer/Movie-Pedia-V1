@@ -8,8 +8,8 @@ import ThemeToggleInLine from '@/components/ThemeToggleInLine';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'tester',
-	description: 'tester',
+	title: 'MoviePedia',
+	description: 'A Movie Library',
 	icons: '/favicon.svg',
 };
 
