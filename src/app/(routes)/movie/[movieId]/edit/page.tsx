@@ -7,6 +7,7 @@ import { ChevronLeft } from 'lucide-react';
 import { isUUID } from '@/lib/utils/funtions';
 import { db } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
 const Page = async ({
 	params: { movieId = '' },
 }: {
