@@ -2,7 +2,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
-import { CraeteMovieForm } from './components/CraeteMovieForm';
+import { CraeteMovieForm } from './_components/CraeteMovieForm';
 
 const Page = async ({}: {}) => {
 	return (

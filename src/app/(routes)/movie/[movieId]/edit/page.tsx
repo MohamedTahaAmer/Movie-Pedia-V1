@@ -1,7 +1,7 @@
 import { getMovie } from '@/actions/actions.movie';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { EditMovieForm } from './components/EditMovieForm';
+import { EditMovieForm } from './_components/EditMovieForm';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import { ChevronLeft } from 'lucide-react';
