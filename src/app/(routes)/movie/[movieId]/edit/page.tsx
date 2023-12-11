@@ -1,16 +1,18 @@
 import { getMovie } from '@/actions/actions.movie';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { EditMovieForm } from './_components/EditMovieForm';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import { ChevronLeft } from 'lucide-react';
+import { isUUID } from '@/lib/utils/funtions';
 
 const Page = async ({
-	params: { movieId },
+	params: { movieId = '' },
 }: {
-	params: { movieId: string };
+	params: { movieId?: string };
 }) => {
+	if (!isUUID(movieId)) redirect('/');
 	const movie = await getMovie(movieId);
 	if (!movie) return notFound();
 	return (
