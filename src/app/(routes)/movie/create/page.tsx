@@ -4,6 +4,7 @@ import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import { CraeteMovieForm } from './_components/CraeteMovieForm';
 
+export const dynamic = 'force-dynamic';
 const Page = async ({}: {}) => {
 	return (
 		<>

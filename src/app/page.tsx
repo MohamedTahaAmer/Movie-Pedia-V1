@@ -1,7 +1,8 @@
 import { getAllMovies } from '@/actions/actions.movie';
 import { MovieClient } from '@/components/table/client';
 
-const MoviesPage = async () => {
+export const dynamic = 'force-dynamic'
+const Page = async () => {
 	const movies = await getAllMovies();
 	const csvData = movies.map((movie) => ({
 		...movie,
@@ -19,4 +20,4 @@ const MoviesPage = async () => {
 	);
 };
 
-export default MoviesPage;
+export default Page;
