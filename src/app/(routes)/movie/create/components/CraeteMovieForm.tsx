@@ -32,6 +32,11 @@ export function CraeteMovieForm() {
 
 	const form = useForm<MovieValidator>({
 		resolver: zodResolver(movieValidator),
+		defaultValues: {
+			name: '',
+			duration: '',
+			rating: 0,
+		},
 	});
 
 	const handleUpdateMovie = async (
@@ -39,10 +44,11 @@ export function CraeteMovieForm() {
 	) => {
 		try {
 			setLoading(true);
-			await createMovie(movie);
+			const movie2 = await createMovie(movie);
 			toast({ title: 'Movie Created Successfully.' });
-			router.push('/');
+			// router.push('/');
 		} catch (error: any) {
+			console.log('\x1b[31m%s\x1b[0m', 'in');
 			toast({ variant: 'destructive', title: error.message });
 		} finally {
 			setLoading(false);
@@ -80,7 +86,7 @@ export function CraeteMovieForm() {
 							});
 							return;
 						}
-						return handleUpdateMovie({
+						handleUpdateMovie({
 							...e,
 							duration,
 							rating,

@@ -3,7 +3,10 @@ import { revalidatePath } from 'next/cache';
 import { db } from '@/lib/db';
 import { generalErrors } from '@/lib/errorMessages';
 import { z } from 'zod';
-import { movieValidator, updateMovieValidator } from '@/lib/validators/movie';
+import {
+	movieValidatorBackEnd,
+	updateMovieValidatorBackEnd,
+} from '@/lib/validators/movie';
 import { fromZodError } from 'zod-validation-error';
 
 type createMoviePops = {
@@ -14,7 +17,7 @@ type createMoviePops = {
 
 export async function createMovie({ name, duration, rating }: createMoviePops) {
 	try {
-		movieValidator.parse({ name, duration, rating });
+		movieValidatorBackEnd.parse({ name, duration, rating });
 		const movie = await db.movie.create({
 			data: {
 				name,
@@ -27,7 +30,7 @@ export async function createMovie({ name, duration, rating }: createMoviePops) {
 	} catch (error: any) {
 		if (error instanceof z.ZodError) {
 			const validationError = fromZodError(error);
-			return new Response(validationError.message);
+			throw new Error(validationError.message);
 		}
 		throw new Error(generalErrors.someWentWrong);
 	}
@@ -47,7 +50,7 @@ export async function updateMovie({
 	id,
 }: updateMoviePops) {
 	try {
-		updateMovieValidator.parse({ name, duration, rating, id });
+		updateMovieValidatorBackEnd.parse({ name, duration, rating, id });
 		const movie = await db.movie.update({
 			where: { id },
 			data: {
@@ -61,7 +64,7 @@ export async function updateMovie({
 	} catch (error: any) {
 		if (error instanceof z.ZodError) {
 			const validationError = fromZodError(error);
-			return new Response(validationError.message);
+			throw new Error(validationError.message);
 		}
 		throw new Error(generalErrors.someWentWrong);
 	}
