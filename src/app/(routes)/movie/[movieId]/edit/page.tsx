@@ -1,4 +1,3 @@
-import { getMovie } from '@/actions/actions.movie';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { EditMovieForm } from './_components/EditMovieForm';
@@ -6,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import { ChevronLeft } from 'lucide-react';
 import { isUUID } from '@/lib/utils/funtions';
+import { db } from '@/lib/db';
 
 const Page = async ({
 	params: { movieId = '' },
@@ -13,7 +13,12 @@ const Page = async ({
 	params: { movieId?: string };
 }) => {
 	if (!isUUID(movieId)) redirect('/');
-	const movie = await getMovie(movieId);
+	// const movie = await getMovie(movieId);
+	const movie = await db.movie.findUnique({
+		where: {
+			id: movieId,
+		},
+	});
 	if (!movie) return notFound();
 	return (
 		<>
