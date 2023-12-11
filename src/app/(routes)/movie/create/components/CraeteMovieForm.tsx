@@ -44,9 +44,9 @@ export function CraeteMovieForm() {
 	) => {
 		try {
 			setLoading(true);
-			const movie2 = await createMovie(movie);
+			await createMovie(movie);
 			toast({ title: 'Movie Created Successfully.' });
-			// router.push('/');
+			router.push('/');
 		} catch (error: any) {
 			console.log('\x1b[31m%s\x1b[0m', 'in');
 			toast({ variant: 'destructive', title: error.message });
